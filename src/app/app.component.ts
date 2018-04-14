@@ -12,19 +12,22 @@ export class AppComponent {
   public imageSource;
   public respuesta;
 
-  constructor(private http: HttpClient){
-    
+  constructor(private http: HttpClient) {
+
   }
 
-  mostrar(question: any){
-    
+  mostrar(question: any) {
+
     if (!question.value) {
-      alert('PONGA UNA PREGUNTAS')
+      alert('PONGA UNA PREGUNTA')
+      this.imageSource=null;
+      this.respuesta=null;
+    } else {
+      this.http.get(this.url).subscribe(data => {
+        console.log(data);
+        this.imageSource = data['image'];
+        this.respuesta = data['answer'] == "yes" ? "SI" : "NO";
+      });
     }
-    this.http.get(this.url).subscribe(data => {
-      console.log(data);
-      this.imageSource = data['image'];
-      this.respuesta = data['answer']=="yes"?"SI":"NO";
-    });
   }
 }
