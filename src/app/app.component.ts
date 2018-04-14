@@ -13,6 +13,10 @@ export class AppComponent {
   public imageSource;
 
   constructor(private http: HttpClient){
+    
+  }
+
+  mostrar(){
     this.http.get(this.url).subscribe(data => {
       console.log(data);
       this.imageSource = data['image'];

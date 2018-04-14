@@ -4,8 +4,7 @@
     Bienvenido a la aplicación {{ title }}!
   </h1>
   <h2> Digite su pregunta</h2>
-<button >Aceptar</button>
+<button (click)=mostrar()>Aceptar</button>
   <input text="text" >
-  
   <br>
-  <img [src]= "imageSource" />
+  <img [src]= "imageSource" *ngIf="imageSource"/>
