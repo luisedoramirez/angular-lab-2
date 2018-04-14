@@ -1,17 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<body ng-app="formApp">
-
   <div style="text-align:center" class="container">
     <h1>
       Bienvenido a la aplicación {{ title }}!
     </h1>
     <h2> Digite su pregunta.</h2>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Pregunta" name="name" ng-model="formData.name" required>
+      <input type="text" class="form-control" #question placeholder="Pregunta">
     </div>
     <br>
-    <button (click)=mostrar()>
+    <button (click)="mostrar(question)">
       <b>Aceptar</b>
     </button>
     <br>
@@ -19,4 +17,3 @@
     <br>
     <img [src]="imageSource" *ngIf="imageSource" />
   </div>
-</body>

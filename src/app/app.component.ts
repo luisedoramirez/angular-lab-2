@@ -16,8 +16,11 @@ export class AppComponent {
     
   }
 
-  mostrar(){
+  mostrar(question: any){
     
+    if (!question.value) {
+      alert('PONGA UNA PREGUNTAS')
+    }
     this.http.get(this.url).subscribe(data => {
       console.log(data);
       this.imageSource = data['image'];
